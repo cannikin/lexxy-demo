@@ -1,0 +1,10 @@
+<ul>
+  <% @messages.each do |message| %>
+    <li><%= message.content %></li>
+  <% end %>
+</ul>
+
+<%= form_with model: Message.new do |form| %>
+  <%= form.rich_text_area :content, data: { turbo_permanent: true } %>
+  <%= form.submit "Create Message" %>
+<% end %>
